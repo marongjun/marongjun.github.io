@@ -8,11 +8,7 @@ redirect_from:
 ---
 I'm curious about how people appropriate different technologies into their everyday lives. Currently, I'm interested in usable security and privacy, and in how our relational and evolving relationship with AI reshapes the landscape and challenges conventional theories of privacy.
 
-I love doing research, it allows my curiosity to expand and gives me the space to observe, at my own pace, how the world evolves around technology.
-
 I'm interested in theory and methodology; they are lenses and tools to interpret and observe the world around us.
-
-People change, and the world changes. People and technology co-adapt, and I also adapt alongside them. I continue to evolve in how I understand others while cherishing every moment that becomes part of me.
 
 I love my cat Chester, who is a rebellious, talkative, peaceful, multicultural middle-aged male. He has been accompanying my research journey since day one.
 
