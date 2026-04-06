@@ -10,7 +10,7 @@ I'm curious about how people appropriate different technologies into their every
 
 I'm interested in theory and methodology; they are lenses and tools to interpret and observe the world around us.
 
-I love my cat Chester, who is a rebellious, talkative, peaceful, multicultural middle-aged male. He has been accompanying my research journey since day one.
+I have a cat Chester, who is a rebellious, talkative, peaceful, multicultural middle-aged male. He has been accompanying my research journey since day one.
 
 I left my hometown for university and have been living abroad ever since. I spent four years in Beijing, China, and seven years in Espoo, Finland (a city a few metro stops from Helsinki). Now I live in Valencia, Spain. I’ve loved every stop, and I keep wondering where I’ll be in 10 years.
 
