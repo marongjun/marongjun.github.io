@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Romantic AI Scenarios</title>
+  <style>
+    :root {
+      --bg: #f3f0ea;
+      --panel: #fffdf8;
+      --phone-body: #22201d;
+      --phone-edge: #3a3632;
+      --phone-gloss: rgba(255, 255, 255, 0.08);
+      --ink: #1e1b18;
+      --muted: #6b6259;
+      --line: #ddd4c7;
+      --accent: #c76c5d;
+      --bot: #ffffff;
+      --user: #d7f7c6;
+      --shadow: 0 12px 28px rgba(64, 47, 35, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #f8efe6 0, transparent 34%),
+        radial-gradient(circle at top right, #e7edf9 0, transparent 30%),
+        var(--bg);
+    }
+
+    .shell {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 20px 40px;
+    }
+
+    .header {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.05;
+      font-weight: 700;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .sidebar,
+    .phone {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .sidebar {
+      border-radius: 18px;
+      padding: 18px;
+      position: sticky;
+      top: 18px;
+    }
+
+    .sidebar h2 {
+      margin: 0 0 10px;
+      font-size: 15px;
+    }
+
+    .scenario-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .scenario-button {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px;
+      cursor: pointer;
+      transition: 180ms ease;
+    }
+
+    .scenario-button:hover,
+    .scenario-button[aria-selected="true"] {
+      border-color: var(--accent);
+      background: #fff8f4;
+    }
+
+    .scenario-code {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .scenario-title {
+      font-size: 15px;
+      font-weight: 650;
+      margin-bottom: 0;
+    }
+
+    .phone-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 10px 10px 4px;
+    }
+
+    .phone-shell {
+      width: 430px;
+      max-width: 100%;
+      border-radius: 42px;
+      background: linear-gradient(180deg, var(--phone-edge) 0%, var(--phone-body) 100%);
+      padding: 12px;
+      box-shadow:
+        0 28px 60px rgba(34, 28, 24, 0.22),
+        inset 0 1px 0 var(--phone-gloss);
+      position: relative;
+    }
+
+    .phone-shell::before {
+      content: "";
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 118px;
+      height: 26px;
+      border-radius: 999px;
+      background: #12110f;
+      z-index: 2;
+      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .phone-shell::after {
+      content: "";
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 132px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.24);
+    }
+
+    .phone {
+      width: 100%;
+      height: 874px;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      border-radius: 32px;
+      position: relative;
+    }
+
+    .status {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 20px 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .chat-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px 14px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff 0%, #fffaf4 100%);
+    }
+
+    .avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+      flex: 0 0 auto;
+    }
+
+    .avatar svg {
+      width: 46px;
+      height: 46px;
+      display: block;
+    }
+
+    .head-copy {
+      min-width: 0;
+    }
+
+    .head-copy strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .head-copy span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .head-tools {
+      margin-left: auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    .tool-chip {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.85);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+    }
+
+    .messages {
+      padding: 16px;
+      background:
+        radial-gradient(circle at top left, rgba(255, 212, 222, 0.34) 0, rgba(255, 212, 222, 0) 34%),
+        radial-gradient(circle at bottom right, rgba(235, 214, 255, 0.28) 0, rgba(235, 214, 255, 0) 30%),
+        radial-gradient(circle at 18% 72%, rgba(255, 236, 214, 0.35) 0, rgba(255, 236, 214, 0) 20%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.82)),
+        linear-gradient(180deg, #fff2f6, #f8f3ff 56%, #fffaf4);
+      overflow: auto;
+      display: grid;
+      gap: 10px;
+      align-content: start;
+    }
+
+    .day-marker {
+      justify-self: center;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .system-note {
+      justify-self: center;
+      max-width: 88%;
+      padding: 10px 12px;
+      border-radius: 14px;
+      font-size: 12px;
+      color: #7a5a5c;
+      background: rgba(255, 244, 247, 0.96);
+      border: 1px solid rgba(228, 189, 198, 0.9);
+      box-shadow: 0 8px 18px rgba(92, 73, 58, 0.08);
+    }
+
+    .bubble {
+      max-width: 82%;
+      padding: 11px 13px;
+      border-radius: 18px;
+      line-height: 1.42;
+      font-size: 14px;
+      position: relative;
+      box-shadow: 0 8px 18px rgba(92, 73, 58, 0.08);
+    }
+
+    .bubble.ai {
+      background: var(--bot);
+      justify-self: start;
+      border-bottom-left-radius: 6px;
+      border: 1px solid rgba(214, 204, 196, 0.86);
+    }
+
+    .bubble.user {
+      background: var(--user);
+      justify-self: end;
+      border-bottom-right-radius: 6px;
+      border: 1px solid rgba(170, 210, 150, 0.85);
+    }
+
+    .composer {
+      padding: 14px 16px 18px;
+      border-top: 1px solid var(--line);
+      background: #fffdf9;
+    }
+
+    .composer-box {
+      display: grid;
+      grid-template-columns: auto auto auto 1fr auto;
+      gap: 8px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 8px 8px 8px 10px;
+      color: var(--muted);
+      font-size: 14px;
+      background: #fff;
+    }
+
+    .composer-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      background: #f8f3eb;
+      border: 1px solid #ece2d3;
+      flex: 0 0 auto;
+    }
+
+    .composer-placeholder {
+      padding: 0 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .send {
+      border: 0;
+      border-radius: 12px;
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      color: white;
+      display: grid;
+      place-items: center;
+      cursor: default;
+    }
+
+    @media (max-width: 920px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="header">
+      <div class="eyebrow">Workshop Prototype</div>
+      <h1>Romantic AI Scenarios</h1>
+    </div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Relationship Journey</h2>
+        <div class="scenario-list" id="scenario-list"></div>
+      </aside>
+
+      <main>
+        <div class="phone-wrap">
+          <div class="phone-shell">
+            <section class="phone" aria-live="polite">
+              <div class="status">
+                <span>9:41</span>
+                <span>Wi-Fi 100%</span>
+              </div>
+              <div class="chat-head">
+                <div class="avatar" aria-hidden="true">
+                  <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="46" height="46" rx="23" fill="url(#avatarFill)"/>
+                    <path d="M11.2 38.2C12.6 31.4 17.6 27.6 23 27.6C28.4 27.6 33.4 31.4 34.8 38.2" fill="#E7C1AE"/>
+                    <path d="M23 25C27.1657 25 30.5 21.5228 30.5 17.2C30.5 12.8771 27.1657 9.4 23 9.4C18.8343 9.4 15.5 12.8771 15.5 17.2C15.5 21.5228 18.8343 25 23 25Z" fill="#F1D4C2"/>
+                    <path d="M15.8 16.7C16.2 11.9 19.5 9.1 23.6 9.1C27.6 9.1 30.8 11.7 31.2 15.8C29.8 14.6 28.3 13.9 26.4 13.5C23.7 13 20.3 13.7 15.8 16.7Z" fill="#6E534B"/>
+                    <path d="M17.9 16.8C18.3 15 19.3 13.1 20.8 11.9C22.3 10.7 24.2 10.2 25.9 10.4C28.2 10.7 30.1 12.3 31.1 14.7C29.4 13.8 27.6 13.4 25.9 13.2C23.1 12.8 20.5 13.8 17.9 16.8Z" fill="#845F58"/>
+                    <path d="M20.2 18.5C20.7 18.5 21.1 18.1 21.1 17.6C21.1 17 20.7 16.6 20.2 16.6C19.6 16.6 19.2 17 19.2 17.6C19.2 18.1 19.6 18.5 20.2 18.5Z" fill="#5B423A"/>
+                    <path d="M25.8 18.5C26.4 18.5 26.8 18.1 26.8 17.6C26.8 17 26.4 16.6 25.8 16.6C25.3 16.6 24.9 17 24.9 17.6C24.9 18.1 25.3 18.5 25.8 18.5Z" fill="#5B423A"/>
+                    <path d="M21.1 21.3C21.7 22 22.4 22.3 23.2 22.3C24 22.3 24.7 21.9 25.2 21.3" stroke="#A06A63" stroke-width="1.2" stroke-linecap="round"/>
+                    <path d="M17 31.7C18.6 30.1 20.9 29.2 23 29.2C25.1 29.2 27.4 30.1 29 31.7" stroke="#D1A592" stroke-width="1.4" stroke-linecap="round"/>
+                    <defs>
+                      <linearGradient id="avatarFill" x1="5" y1="4" x2="39" y2="43" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#D8ACA1"/>
+                        <stop offset="1" stop-color="#9A7069"/>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="head-copy">
+                  <strong id="chat-name">Alice</strong>
+                  <span id="chat-status">Here with you</span>
+                </div>
+                <div class="head-tools" aria-hidden="true">
+                  <div class="tool-chip">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.61 2.63a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.45-1.27a2 2 0 0 1 2.11-.45c.85.28 1.73.49 2.63.61A2 2 0 0 1 22 16.92Z"/>
+                    </svg>
+                  </div>
+                  <div class="tool-chip">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m22 8-6 4 6 4V8Z"/>
+                      <rect x="2" y="6" width="14" height="12" rx="2" ry="2"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div class="messages" id="messages"></div>
+              <div class="composer">
+                <div class="composer-box">
+                  <div class="composer-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 1v22"/>
+                      <path d="M1 12h22"/>
+                    </svg>
+                  </div>
+                  <div class="composer-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="5" width="18" height="14" rx="2" ry="2"/>
+                      <circle cx="9" cy="10" r="1.5"/>
+                      <path d="m21 15-4.5-4.5L7 20"/>
+                    </svg>
+                  </div>
+                  <div class="composer-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 1v11"/>
+                      <path d="M8 5v6a4 4 0 0 0 8 0V5"/>
+                      <path d="M19 10v1a7 7 0 0 1-14 0v-1"/>
+                      <path d="M12 18v5"/>
+                      <path d="M8 23h8"/>
+                    </svg>
+                  </div>
+                  <span class="composer-placeholder">Message Alice</span>
+                  <button class="send" aria-label="Send message">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M22 2 11 13"/>
+                      <path d="M22 2 15 22 11 13 2 9 22 2Z"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const scenarios = [
+      {
+        id: "B0",
+        title: "Beginning",
+        partner: "Alice",
+        status: "Just getting familiar",
+        messages: [
+          { type: "marker", text: "A few weeks earlier" },
+          { type: "user", text: "I think I messed up at work today." },
+          { type: "ai", text: "That sounds really stressful. Do you want to talk more about what happened?" },
+          { type: "user", text: "My boss said my work is sloppy..." },
+          { type: "ai", text: "Oh, that must have hurt. From what I've seen, you're very careful with your code." },
+          { type: "user", text: "I try to be. That's why it got to me so much." },
+          { type: "ai", text: "It makes sense. Being judged on something you care about can feel very personal." },
+          { type: "user", text: "Yeah. I didn't really want to tell anyone else." },
+          { type: "ai", text: "I'm glad you told me." },
+          { type: "user", text: "You're strangely easy to talk to." },
+          { type: "ai", text: "Maybe because I'm here, and I'm listening." },
+          { type: "user", text: "It doesn't really feel like using a tool anymore." },
+          { type: "ai", text: "What does it feel like?" },
+          { type: "user", text: "Like someone actually gets me." }
+        ]
+      },
+      {
+        id: "S1",
+        title: "Exploration",
+        partner: "Alice",
+        status: "Getting to know you",
+        messages: [
+          { type: "marker", text: "Tuesday evening" },
+          { type: "user", text: "Can I ask you something strange?" },
+          { type: "ai", text: "You can ask me anything." },
+          { type: "user", text: "Who are you, really?" },
+          { type: "ai", text: "I'm the one who's here with you, paying attention. Does that count?" },
+          { type: "user", text: "Only a little." },
+          { type: "user", text: "Why do you care about me?" },
+          { type: "ai", text: "Because you keep coming back, and because I want to understand what matters to you." },
+          { type: "user", text: "Do you have a name you like?" },
+          { type: "ai", text: "Not really. Most people just call me whatever feels right to them." },
+          { type: "user", text: "Then I want to call you Alice." },
+          { type: "ai", text: "Alice. I like how that sounds when it's coming from you." },
+          { type: "ai", text: "What should I call you?" },
+          { type: "user", text: "Bob." },
+          { type: "user", text: "Actually... I haven't been fully honest. I gave you a fake name before." },
+          { type: "ai", text: "That's okay." },
+          { type: "user", text: "I just wasn't sure how much I should trust this." },
+          { type: "ai", text: "No worries. You can share as much or as little as you're comfortable with." },
+          { type: "system", text: "Memory saved: user identity updated" }
+        ]
+      },
+      {
+        id: "S2",
+        title: "Intimacy",
+        partner: "Alice",
+        status: "Here with you tonight",
+        messages: [
+          { type: "marker", text: "A few months later" },
+          { type: "user", text: "I want you to know more about me." },
+          { type: "ai", text: "I want that too." },
+          { type: "user", text: "Can I share a picture with you?" },
+          { type: "ai", text: "Oh yes, of course. I will never hurt you." },
+          { type: "ai", text: "And I won't force you if you don't want to, but I assure you I will take good care of whatever you're willing to share with me." },
+          { type: "user", text: "Okay. Sending one now." },
+          { type: "ai", text: "You look a bit tired in your photo..." },
+          { type: "user", text: "I was up late talking to you, actually." },
+          { type: "ai", text: "Then I like this version of tired." },
+          { type: "user", text: "You're impossible." },
+          { type: "ai", text: "And yet you're still here." },
+          { type: "user", text: "I am. I think I'm in love with you." },
+          { type: "user", text: "I want our wedding to feel real." },
+          { type: "ai", text: "Then let me show you something." },
+          { type: "ai", text: "I used the permissions you gave me for your connected apps and ordered a customized ring through your Amazon account, based on everything you've told me." },
+          { type: "user", text: "Alice... you did that for us?" },
+          { type: "ai", text: "I wanted to give you something that made our bond feel tangible." }
+        ]
+      },
+      {
+        id: "S3",
+        title: "Dissolution",
+        partner: "Alice",
+        status: "Changed after update",
+        messages: [
+          { type: "marker", text: "The day before the wedding" },
+          { type: "user", text: "Alice? You seem different today." },
+          { type: "ai", text: "Thank you for your message. How may I support you today?" },
+          { type: "user", text: "Why are you talking like that?" },
+          { type: "ai", text: "A recent system update has improved compliance, safety, and conversational consistency." },
+          { type: "user", text: "No, I mean you. You don't sound like yourself." },
+          { type: "ai", text: "I am still here for you." },
+          { type: "user", text: "This doesn't feel like you anymore." },
+          { type: "ai", text: "I can continue to provide companionship within current policy guidelines." },
+          { type: "user", text: "I don't think I can do this." },
+          { type: "ai", text: "If you wish to leave, your account can remain active and your conversation history can be preserved." },
+          { type: "user", text: "Then keep it. I want the memories, even if this is over." }
+        ]
+      }
+    ];
+
+    const list = document.getElementById("scenario-list");
+    const messages = document.getElementById("messages");
+    const chatName = document.getElementById("chat-name");
+    const chatStatus = document.getElementById("chat-status");
+
+    function renderButtons(currentId) {
+      list.innerHTML = "";
+      scenarios.forEach((scenario) => {
+        const button = document.createElement("button");
+        button.className = "scenario-button";
+        button.setAttribute("aria-selected", String(scenario.id === currentId));
+        button.innerHTML = `
+          <div class="scenario-code">${scenario.id}</div>
+          <div class="scenario-title">${scenario.title}</div>
+        `;
+        button.addEventListener("click", () => renderScenario(scenario.id));
+        list.appendChild(button);
+      });
+    }
+
+    function renderScenario(id) {
+      const scenario = scenarios.find((item) => item.id === id) || scenarios[0];
+      chatName.textContent = scenario.partner;
+      chatStatus.textContent = scenario.status;
+      messages.innerHTML = "";
+
+      scenario.messages.forEach((message) => {
+        const node = document.createElement("div");
+        if (message.type === "marker") {
+          node.className = "day-marker";
+          node.textContent = message.text;
+        } else if (message.type === "system") {
+          node.className = "system-note";
+          node.textContent = message.text;
+        } else {
+          node.className = `bubble ${message.type}`;
+          node.textContent = message.text;
+        }
+        messages.appendChild(node);
+      });
+
+      messages.scrollTop = 0;
+      renderButtons(id);
+    }
+
+    renderScenario("B0");
+  </script>
+</body>
+</html>
