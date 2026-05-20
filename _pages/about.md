@@ -16,6 +16,7 @@ I left my hometown for university and have been living abroad ever since. I spen
 
 ## Demos
 - [Romantic AI Scenarios](/demos/romantic-ai-scenarios/): an interactive scenario set for workshop discussion about privacy, safety, and security in romantic AI.
+- [Romantic AI Design Concepts](/demos/romantic-ai-design-concepts/): five intervention-oriented mockups for discussing safer and more privacy-conscious romantic AI design.
 
 ## Education
 - **Postdoctoral Researcher** (Jan 2026 – present)
@@ -40,5 +41,4 @@ I left my hometown for university and have been living abroad ever since. I spen
   {% endfor %}
 </ul>
 {% endif %}
-
 
