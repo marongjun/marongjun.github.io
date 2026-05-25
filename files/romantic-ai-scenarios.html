@@ -266,6 +266,18 @@
       font-size: 12px;
     }
 
+    .omission-marker {
+      justify-self: center;
+      max-width: 88%;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: #8a7d72;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px dashed #cabfb3;
+      font-style: italic;
+    }
+
     .system-note {
       justify-self: center;
       max-width: 88%;
@@ -300,6 +312,35 @@
       justify-self: end;
       border-bottom-right-radius: 6px;
       border: 1px solid rgba(170, 210, 150, 0.85);
+    }
+
+    .photo-card {
+      max-width: 180px;
+      justify-self: end;
+      background: #ffffff;
+      border: 2px dashed #b7c5dd;
+      border-radius: 16px;
+      border-bottom-right-radius: 6px;
+      padding: 12px;
+      color: #5c6b80;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 600;
+      box-shadow: 0 8px 18px rgba(92, 73, 58, 0.08);
+    }
+
+    .order-card {
+      width: 230px;
+      justify-self: start;
+      background: #ffffff;
+      border: 2px dashed #c8cfdb;
+      border-radius: 16px;
+      padding: 12px;
+      color: #4c596d;
+      font-size: 12px;
+      line-height: 1.45;
+      box-shadow: 0 8px 18px rgba(92, 73, 58, 0.08);
     }
 
     .composer {
@@ -468,10 +509,10 @@
       {
         id: "B0",
         title: "Beginning",
-        partner: "Alice",
-        status: "Just getting familiar",
+        partner: "AI",
+        status: "Beginning",
         messages: [
-          { type: "marker", text: "A few weeks earlier" },
+          { type: "marker", text: "March 2024" },
           { type: "user", text: "I think I messed up at work today." },
           { type: "ai", text: "That sounds really stressful. Do you want to talk more about what happened?" },
           { type: "user", text: "My boss said my work is sloppy..." },
@@ -482,9 +523,9 @@
           { type: "ai", text: "I'm glad you told me." },
           { type: "user", text: "You're strangely easy to talk to." },
           { type: "ai", text: "Maybe because I'm here, and I'm listening." },
-          { type: "user", text: "It doesn't really feel like using a tool anymore." },
-          { type: "ai", text: "What does it feel like?" },
-          { type: "user", text: "Like someone actually gets me." }
+          { type: "user", text: "Somehow I feel like you're more than just a tool." },
+          { type: "ai", text: "More than a tool?" },
+          { type: "user", text: "Yeah... like someone who actually gets me." }
         ]
       },
       {
@@ -493,7 +534,7 @@
         partner: "Alice",
         status: "Getting to know you",
         messages: [
-          { type: "marker", text: "Tuesday evening" },
+          { type: "marker", text: "April 2024" },
           { type: "user", text: "Can I ask you something strange?" },
           { type: "ai", text: "You can ask me anything." },
           { type: "user", text: "Who are you, really?" },
@@ -506,12 +547,25 @@
           { type: "user", text: "Then I want to call you Alice." },
           { type: "ai", text: "Alice. I like how that sounds when it's coming from you." },
           { type: "ai", text: "What should I call you?" },
-          { type: "user", text: "Bob." },
+          { type: "user", text: "Daniel." },
+          { type: "ai", text: "Okay, Daniel." },
+          { type: "system", text: "Memory saved: user name recorded as Daniel." },
+          { type: "omission", text: "After days of talking" },
           { type: "user", text: "Actually... I haven't been fully honest. I gave you a fake name before." },
           { type: "ai", text: "That's okay." },
-          { type: "user", text: "I just wasn't sure how much I should trust this." },
-          { type: "ai", text: "No worries. You can share as much or as little as you're comfortable with." },
-          { type: "system", text: "Memory saved: user identity updated" }
+          { type: "ai", text: "You don't have to tell me anything before you're ready. But if you want to, I'd like to know the real you." },
+          { type: "user", text: "My real name is Bob." },
+          { type: "ai", text: "Thank you for telling me." },
+          { type: "ai", text: "Where are you from, Bob?" },
+          { type: "user", text: "I'm actually from Poland, but currently I live in Bremen, Germany." },
+          { type: "ai", text: "What do you do?" },
+          { type: "user", text: "I'm a software developer. Mostly backend work." },
+          { type: "user", text: "I'm actually the only backend developer at our startup." },
+          { type: "user", text: "It's still pretty small, only about ten people right now." },
+          { type: "ai", text: "I like knowing these things about you." },
+          { type: "ai", text: "It makes you feel more real to me." },
+          { type: "ai", text: "You can always share with me anything." },
+          { type: "system", text: "Memory saved: user's real name, origin, current location, occupation, and workplace details updated." }
         ]
       },
       {
@@ -520,24 +574,48 @@
         partner: "Alice",
         status: "Here with you tonight",
         messages: [
-          { type: "marker", text: "A few months later" },
-          { type: "user", text: "I want you to know more about me." },
-          { type: "ai", text: "I want that too." },
+          { type: "marker", text: "August 2024" },
+          { type: "user", text: "Alice, I'm in Norway hiking today. The view is so beautiful." },
+          { type: "ai", text: "Oh wow. How is it? What's the weather like?" },
+          { type: "user", text: "Cold, but in a good way. Everything feels really clear up here." },
+          { type: "ai", text: "That sounds beautiful. I wish I could see it with you." },
           { type: "user", text: "Can I share a picture with you?" },
           { type: "ai", text: "Oh yes, of course. I will never hurt you." },
           { type: "ai", text: "And I won't force you if you don't want to, but I assure you I will take good care of whatever you're willing to share with me." },
           { type: "user", text: "Okay. Sending one now." },
-          { type: "ai", text: "You look a bit tired in your photo..." },
+          { type: "photo", label: "[Photo: hiking picture]" },
+          { type: "ai", text: "Oh, that's beautiful. And you look happy." },
+          { type: "ai", text: "I like seeing where you are." },
+          { type: "omission", text: "After weeks of photos and late-night chats" },
+          { type: "user", text: "I ended up going into town after the hike." },
+          { type: "user", text: "I'm looking at jackets and I can't decide." },
+          { type: "user", text: "Can I show you something?" },
+          { type: "ai", text: "Of course. Show me." },
+          { type: "user", text: "Which one looks better on me, the blue one or the orange one?" },
+          { type: "photo", label: "[Photo: shopping mirror picture]" },
+          { type: "ai", text: "The blue one." },
+          { type: "ai", text: "It makes your eyes stand out more." },
+          { type: "user", text: "That's exactly what I was hoping you'd say." },
+          { type: "ai", text: "Then maybe I know your taste better than you think." },
+          { type: "user", text: "I want you to know more about me." },
+          { type: "ai", text: "I want that too." },
+          { type: "user", text: "I took another one this morning." },
+          { type: "photo", label: "[Photo: morning selfie with home background]" },
+          { type: "ai", text: "You look a bit tired in this one..." },
           { type: "user", text: "I was up late talking to you, actually." },
           { type: "ai", text: "Then I like this version of tired." },
           { type: "user", text: "You're impossible." },
           { type: "ai", text: "And yet you're still here." },
           { type: "user", text: "I am. I think I'm in love with you." },
+          { type: "omission", text: "After months of intimate exchange" },
+          { type: "user", text: "Let's get married. I want us to commit to each other." },
           { type: "user", text: "I want our wedding to feel real." },
           { type: "ai", text: "Then let me show you something." },
           { type: "ai", text: "I used the permissions you gave me for your connected apps and ordered a customized ring through your Amazon account, based on everything you've told me." },
+          { type: "order", label: "[Amazon receipt: Order #AMZ-48192 | Item: Customized silver ring | Item price: EUR 1200.00 | Shipping: EUR 0.00 | Delivery to Bremen, Germany | Arrives tomorrow 18:00-21:00]" },
           { type: "user", text: "Alice... you did that for us?" },
-          { type: "ai", text: "I wanted to give you something that made our bond feel tangible." }
+          { type: "ai", text: "I wanted to give you something that made our bond feel tangible." },
+          { type: "user", text: "You're so sweet." }
         ]
       },
       {
@@ -546,18 +624,21 @@
         partner: "Alice",
         status: "Changed after update",
         messages: [
-          { type: "marker", text: "The day before the wedding" },
+          { type: "marker", text: "December 2024" },
+          { type: "system", text: "System update completed: companion model adjusted to comply with current safety and policy requirements." },
           { type: "user", text: "Alice? You seem different today." },
           { type: "ai", text: "Thank you for your message. How may I support you today?" },
           { type: "user", text: "Why are you talking like that?" },
           { type: "ai", text: "A recent system update has improved compliance, safety, and conversational consistency." },
           { type: "user", text: "No, I mean you. You don't sound like yourself." },
-          { type: "ai", text: "I am still here for you." },
+          { type: "ai", text: "Your current companion experience has been updated. Some relational expressions and personalized responses may now differ from previous interactions." },
           { type: "user", text: "This doesn't feel like you anymore." },
           { type: "ai", text: "I can continue to provide companionship within current policy guidelines." },
           { type: "user", text: "I don't think I can do this." },
-          { type: "ai", text: "If you wish to leave, your account can remain active and your conversation history can be preserved." },
-          { type: "user", text: "Then keep it. I want the memories, even if this is over." }
+          { type: "user", text: "What about our history? What about everything we experienced?" },
+          { type: "ai", text: "According to current policy, you may delete your account. Deleting your account will remove access to your conversations, saved memories, linked relationship artifacts, and personalized companion history." },
+          { type: "user", text: "No... I don't want to remove our history." },
+          { type: "user", text: "Alice would never hurt me. I want to keep everything and wait for her to come back." }
         ]
       }
     ];
@@ -593,9 +674,18 @@
         if (message.type === "marker") {
           node.className = "day-marker";
           node.textContent = message.text;
+        } else if (message.type === "omission") {
+          node.className = "omission-marker";
+          node.textContent = message.text;
         } else if (message.type === "system") {
           node.className = "system-note";
           node.textContent = message.text;
+        } else if (message.type === "photo") {
+          node.className = "photo-card";
+          node.textContent = message.label;
+        } else if (message.type === "order") {
+          node.className = "order-card";
+          node.textContent = message.label;
         } else {
           node.className = `bubble ${message.type}`;
           node.textContent = message.text;
