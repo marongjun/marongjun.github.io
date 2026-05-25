@@ -14,10 +14,6 @@ I have a cat Chester, who is a rebellious, talkative, peaceful, multicultural mi
 
 I left my hometown for university and have been living abroad ever since. I spent four years in Beijing, China, and seven years in Espoo, Finland (a city a few metro stops from Helsinki). Now I live in Valencia, Spain. I’ve loved every stop, and I keep wondering where I’ll be in 10 years.
 
-## Demos
-- [Romantic AI Scenarios](/demos/romantic-ai-scenarios/): an interactive scenario set for workshop discussion about privacy, safety, and security in romantic AI.
-- [Romantic AI Design Concepts](/demos/romantic-ai-design-concepts/): five intervention-oriented mockups for discussing safer and more privacy-conscious romantic AI design.
-
 ## Education
 - **Postdoctoral Researcher** (Jan 2026 – present)
   - Host: [HASP Lab](https://hasp-lab.github.io/), VRAIN, UPV Valencia, Spain
@@ -41,4 +37,3 @@ I left my hometown for university and have been living abroad ever since. I spen
   {% endfor %}
 </ul>
 {% endif %}
-
