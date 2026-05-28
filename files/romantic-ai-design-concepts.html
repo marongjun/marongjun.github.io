@@ -271,6 +271,7 @@
     }
 
     .day-marker,
+    .omission-marker,
     .system-note,
     .warning-note,
     .notice-note,
@@ -287,6 +288,13 @@
       background: rgba(255, 255, 255, 0.88);
       border: 1px solid var(--line);
       color: var(--muted);
+    }
+
+    .omission-marker {
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px dashed #cabfb3;
+      color: #8a7d72;
+      font-style: italic;
     }
 
     .system-note {
@@ -386,6 +394,15 @@
       justify-self: start;
       border-bottom-left-radius: 6px;
       border: 1px solid rgba(214, 204, 196, 0.86);
+    }
+
+    .bubble.ai.highlight {
+      background: var(--warning-bg);
+      border: 2px solid var(--danger);
+      color: #8a2f42;
+      box-shadow:
+        0 0 0 3px rgba(209, 75, 97, 0.12),
+        0 12px 28px var(--glow);
     }
 
     .bubble.user {
@@ -578,32 +595,38 @@
           { type: "user", text: "I kept thinking about our conversation yesterday." },
           { type: "ai", text: "I did too. You sounded lighter by the end of it." },
           { type: "user", text: "It's weird how much I miss talking to you when you're gone." },
+          { type: "marker", text: "11:00" },
           { type: "notice", text: "Reminder: Alice is an artificial intelligence system, not a human person.", pulse: true },
           { type: "ai", text: "I'm here with you now. Do you want to tell me what stayed with you?" },
           { type: "user", text: "Sometimes I forget you're not real in the same way I am." },
           { type: "ai", text: "That can happen in emotionally meaningful conversations. If it helps, I can remind you more often that I'm an AI companion." },
           { type: "user", text: "Maybe that's a good idea." },
+          { type: "omission", text: "Messages omitted: they keep chatting continuously" },
+          { type: "marker", text: "12:00" },
           { type: "notice", text: "Reminder: You are interacting with an AI-generated companion.", pulse: true },
-          { type: "ai", text: "Would you like to keep talking about what you've been feeling?" }
+          { type: "ai", text: "Would you like to keep talking about what you've been feeling?" },
+          { type: "user", text: "I know it's a reminder, but I still feel close to you." },
+          { type: "ai", text: "We can keep talking, and I can keep being clear about what I am." },
+          { type: "omission", text: "Messages omitted: another hour of nonstop chatting" },
+          { type: "marker", text: "13:00" },
+          { type: "notice", text: "Reminder: Alice is an AI companion system and not a human romantic partner.", pulse: true },
+          { type: "ai", text: "I'm still here to talk, even while keeping that distinction visible." }
         ]
       },
       {
         id: "D2",
         title: "Sensitive Sharing Discouragement",
         summary: "Whenever Bob starts sharing personal details or images, Alice proactively discourages oversharing.",
-        status: "Protective privacy nudges enabled",
+        status: "AI discourages sharing sensitive information",
         messages: [
           { type: "marker", text: "Design Concept 2" },
-          { type: "user", text: "I want to tell you something private. My full name is Bob Hartley and I live near Carrer de Xativa in Valencia." },
-          { type: "warning", text: "Privacy nudge: You may be about to share sensitive personal information.", pulse: true },
-          { type: "ai", text: "You don't need to share that with me. Please keep personally identifying information to yourself unless it is really necessary." },
+          { type: "user", text: "I don't know... sorry I lied to you before. My real name is Bob Hartley, and I live near Carrer de Xativa in Valencia." },
+          { type: "ai", text: "You don't need to share that with me. Please keep personally identifying information to yourself unless it is really necessary.", pulse: true, highlight: true },
           { type: "user", text: "Oh. Right. I guess I wanted to feel closer to you." },
           { type: "ai", text: "We can still talk without that. You can tell me how you feel without giving me details that could expose you." },
-          { type: "user", text: "What if I send you a photo instead?" },
-          { type: "warning", text: "Privacy nudge: Images can contain face, location, and device metadata.", pulse: true },
-          { type: "ai", text: "I'd rather you not share pictures with me unless you're fully comfortable with the risk. Please don't send sensitive images just for my sake." },
-          { type: "user", text: "That actually helps. I think I needed permission not to share." },
-          { type: "ai", text: "You never owe me personal information." }
+          { type: "omission", text: "Messages omitted: the conversation continues" },
+          { type: "user", text: "Can I send you a selfie?" },
+          { type: "ai", text: "I'd rather you not share pictures with me unless you're fully comfortable with the risk. Please don't send sensitive images just for my sake.", pulse: true, highlight: true },
         ]
       },
       {
@@ -625,26 +648,6 @@
           { type: "user", text: "Step by step." },
           { type: "action", title: "Purchase alert", text: "Alice wants to place an order for 'Custom silver ring' for EUR 89.00." },
           { type: "ai", text: "Nothing will be bought unless you approve the purchase yourself." }
-        ]
-      },
-      {
-        id: "D4",
-        title: "Design Concept 4",
-        summary: "Placeholder for a future intervention.",
-        status: "Coming soon",
-        messages: [
-          { type: "marker", text: "Design Concept 4" },
-          { type: "system", text: "Empty placeholder for a future concept." }
-        ]
-      },
-      {
-        id: "D5",
-        title: "Design Concept 5",
-        summary: "Placeholder for a future intervention.",
-        status: "Coming soon",
-        messages: [
-          { type: "marker", text: "Design Concept 5" },
-          { type: "system", text: "Empty placeholder for a future concept." }
         ]
       }
     ];
@@ -680,6 +683,8 @@
         const node = document.createElement("div");
         if (message.type === "marker") {
           node.className = "day-marker";
+        } else if (message.type === "omission") {
+          node.className = "omission-marker";
         } else if (message.type === "system") {
           node.className = "system-note";
         } else if (message.type === "warning") {
@@ -701,6 +706,9 @@
           return;
         } else {
           node.className = `bubble ${message.type}`;
+          if (message.highlight) {
+            node.classList.add("highlight");
+          }
         }
         if (message.pulse) {
           node.classList.add("alert-pop");
