@@ -1,3 +1,27 @@
+/* Homepage introduction: blue emphasis with a subtle marker underline. */
+.homepage-intro {
+  --intro-accent: #176579;
+  --intro-highlight: #e5f2f5;
+
+  strong {
+    padding: 0 0.08em;
+    color: var(--intro-accent);
+    background: linear-gradient(transparent 60%, var(--intro-highlight) 60%);
+    font-weight: 600;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  a, a:visited { color: var(--intro-accent); }
+
+  li { margin-bottom: 1em; }
+}
+
+html[data-theme="dark"] .homepage-intro {
+  --intro-accent: #9fd4df;
+  --intro-highlight: #293e47;
+}
+
 /* Homepage research directions and representative papers. */
 .research-overview {
   --research-surface: #f6f7f9;

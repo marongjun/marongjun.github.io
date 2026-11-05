@@ -6,27 +6,22 @@ redirect_from:
   - /about/
   - /about.html
 ---
-I'm curious about how people appropriate different technologies into their everyday lives. Currently, I'm interested in usable security and privacy, and in how our relational and evolving relationship with AI reshapes the landscape and challenges conventional theories of privacy.
 
-I'm interested in theory and methodology; they are lenses and tools to interpret and observe the world around us.
+<div class="homepage-intro" markdown="1">
 
-I have a cat Chester, who is a rebellious, talkative, peaceful, multicultural middle-aged male. He has been accompanying my research journey since day one.
+I am currently a Postdoctoral Researcher at the [HASP Lab](https://hasp-lab.github.io/), VRAIN, Universitat Politècnica de València (UPV), Spain, working with Professor [Jose Such](https://scholar.google.com/citations?user=xNr_IMUAAAAJ). I received my Ph.D. in Computer Science from Aalto University, Finland, under the supervision of Associate Professor [Janne Lindqvist](https://scholar.google.com/citations?user=rOW28UoAAAAJ). Before that, I completed my M.Sc. through the EIT Joint Master Program at Aalto University, Finland, and the University of Twente, the Netherlands.
 
-I left my hometown for university and have been living abroad ever since. I spent four years in Beijing, China, and seven years in Espoo, Finland (a city a few metro stops from Helsinki). Now I live in Valencia, Spain. I’ve loved every stop, and I keep wondering where I’ll be in 10 years.
+My research lies at the intersection of **Human–Computer Interaction (HCI), usable security and privacy**, with a current focus on **human–AI interaction**. I am particularly interested in three interconnected research directions:
+
+- **Technology Appropriation:** Technology adoption is not a one-time decision but an ongoing process of adopting, adapting, and integrating technologies into everyday life. I explore how people appropriate technologies, from web browsers that have long been part of everyday life to emerging AI systems that are increasingly becoming embedded in daily practices, and how to support their responsible appropriation.
+- **Ecosystem Perspectives on Privacy:** Privacy in human–AI interaction extends beyond individual users. I take a user-centered yet ecosystem-wide perspective, examining how different stakeholders, including users, creators, infrastructure providers, and third parties, have intertwined roles, perceptions, and interests that shape how AI is appropriated, how privacy is experienced, and what strategies emerge to manage the privacy.
+- **Human–AI Relationships and Relational Privacy:** What distinguishes AI from many earlier technologies is its evolving role in people's lives—not merely as a functional tool, but increasingly as a relational partner. I am particularly interested in romantic human–AI relationships, where privacy is relational, negotiated, and continuously evolving. My work explores how these dynamics challenge traditional understandings of privacy and why a more dynamic, relationship-centered perspective is needed.
+
+My research has been published in leading HCI conferences and journals, including **ACM CHI** and **ACM CSCW**. You can find a selection of my publications below.
+
+</div>
 
 {% include research.html %}
-
-## Education
-- **Postdoctoral Researcher** (Jan 2026 – present)
-  - Host: [HASP Lab](https://hasp-lab.github.io/), VRAIN, UPV Valencia, Spain
-  - Supervisor: Professor [Jose Such](https://scholar.google.com/citations?user=xNr_IMUAAAAJ&hl=en&oi=ao)
-- **Ph.D.** Computer Science, Aalto University, Finland (Dec 2020 – Oct 2025)
-  - Supervisor: Associate Professor [Janne Lindqvist](https://scholar.google.com/citations?user=rOW28UoAAAAJ&hl=en&oi=ao)
-- **M.Sc.** EIT Joint Master Program (2018–2020)
-  - Entry: Aalto University, Finland
-  - Exit: University of Twente, Netherlands
-
-
 
 <!-- news section: loaded from _data/news.yml -->
 {% assign updates = site.data.news %}

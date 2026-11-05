@@ -15,7 +15,7 @@
         <ul class="research-card__papers" aria-label="Representative papers">
           {% for paper in direction.papers %}
           <li>
-            <a href="{{ paper.url | escape }}"><span class="research-card__venue">{{ paper.venue }}</span> <span>{{ paper.title | escape }}</span></a>
+            <a href="{{ paper.url | escape }}" target="_blank" rel="noopener noreferrer" aria-label="{{ paper.title | escape }} ({{ paper.venue | escape }}, opens in a new tab)"><span class="research-card__venue">{{ paper.venue }}</span> <span>{{ paper.title | escape }}</span></a>
           </li>
           {% endfor %}
         </ul>
