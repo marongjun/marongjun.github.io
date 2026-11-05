@@ -1,0 +1,26 @@
+<section class="research-overview" id="research" aria-labelledby="research-heading">
+  <h2 class="research-overview__heading" id="research-heading">Research</h2>
+  <div class="research-overview__list">
+    {% for direction in site.data.research %}
+    <article class="research-card" aria-labelledby="research-{{ direction.id }}">
+      <div class="research-card__visual" aria-hidden="true">
+        <span class="research-card__number">0{{ forloop.index }}</span>
+        <i class="fas {{ direction.icon }} research-card__icon"></i>
+        <span class="research-card__visual-label">{{ direction.visual_label }}</span>
+      </div>
+      <div class="research-card__body">
+        <p class="research-card__category">{{ direction.category }}</p>
+        <h3 id="research-{{ direction.id }}">{{ direction.title }}</h3>
+        <p class="research-card__description">{{ direction.description }}</p>
+        <ul class="research-card__papers" aria-label="Representative papers">
+          {% for paper in direction.papers %}
+          <li>
+            <a href="{{ paper.url | escape }}"><span class="research-card__venue">{{ paper.venue }}</span> <span>{{ paper.title | escape }}</span></a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>

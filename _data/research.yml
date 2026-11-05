@@ -1,0 +1,63 @@
+- id: intimacy
+  category: Human–AI relationships
+  title: Privacy, intimacy, and AI
+  icon: fa-heart
+  visual_label: Intimacy
+  description: >-
+    What happens to privacy when AI becomes a companion? I study how people
+    negotiate disclosure, boundaries, and agency in intimate relationships with AI,
+    and how platforms govern the data these relationships produce.
+  papers:
+    - venue: CHI ’26
+      title: "Privacy in Human-AI Romantic Relationships: Concerns, Boundaries, and Agency"
+      url: https://dl.acm.org/doi/full/10.1145/3772318.3791237
+    - venue: arXiv ’26
+      title: "The Governance of Intimacy: A Preliminary Policy Analysis of Romantic AI Platforms"
+      url: https://arxiv.org/abs/2602.22000
+
+- id: ecosystems
+  category: Stakeholder perspectives
+  title: Privacy across AI ecosystems
+  icon: fa-project-diagram
+  visual_label: Ecosystems
+  description: >-
+    Privacy looks different depending on where you stand. I examine the
+    perspectives of users, creators, and institutions, alongside data flows and
+    privacy controls in custom GPTs, AI memory, and web agents.
+  papers:
+    - venue: CHI ’25
+      title: Privacy Perceptions of Custom GPTs by Users and Creators
+      url: https://dl.acm.org/doi/full/10.1145/3706598.3713540
+    - venue: CHI ’26
+      title: "PrivWeb: Unobtrusive and Content-aware Privacy Protection For Web Agents"
+      url: https://dl.acm.org/doi/full/10.1145/3772318.3790919
+    - venue: HAIPS ’25
+      title: Understanding Users’ Privacy Perceptions Towards LLM’s RAG-based Memory
+      url: https://dl.acm.org/doi/full/10.1145/3733816.3760750
+    - venue: PoPETs ’26
+      title: Personal Data Flows and Privacy Policy Traceability in Third-party LLM Apps in the GPT Ecosystem
+      url: https://petsymposium.org/popets/2026/popets-2026-0015.php
+    - venue: CHI ’26
+      title: "Privacy and Trust vs. Utility: Adoption of Commercial vs. Institutional AI assistants Among University Users"
+      url: https://dl.acm.org/doi/full/10.1145/3772318.3790881
+
+- id: appropriation
+  category: Technology in everyday life
+  title: Everyday appropriation of technology
+  icon: fa-layer-group
+  visual_label: Everyday life
+  description: >-
+    People make technology their own. I study how they make sense of it,
+    develop habits and coping strategies, and adapt its roles in everyday life,
+    from navigating browsing clutter to playing games together and finding new
+    uses for ChatGPT.
+  papers:
+    - venue: CHI ’23
+      title: "When Browsing Gets Cluttered: Exploring and Modeling Interactions of Browsing Clutter, Browsing Habits, and Coping"
+      url: https://dl.acm.org/doi/full/10.1145/3544548.3580690
+    - venue: CHI PLAY ’25
+      title: "Fluid Roles for Close-Knit Gaming: Households Playing Digital Games"
+      url: https://dl.acm.org/doi/abs/10.1145/3748619
+    - venue: CSCW ’26
+      title: ChatGPT Sensemaking and Appropriation in Everyday Life
+      url: https://dl.acm.org/doi/full/10.1145/3816911
