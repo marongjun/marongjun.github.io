@@ -3,12 +3,14 @@
 <section class="news-section" aria-labelledby="news-heading">
   <h2 id="news-heading">News</h2>
   <p class="news-hint" id="news-hint" hidden>Scroll for earlier news.</p>
+  <div class="news-panel">
   <div class="news-scroll" tabindex="0" role="region" aria-labelledby="news-heading" aria-describedby="news-hint">
     <ul class="site-news">
       {% for item in updates %}
-      <li><strong>{{ item.date }}:</strong> {% if item.upcoming %}<span class="news-upcoming">Upcoming · </span>{% endif %}{{ item.text }}</li>
+      <li><time class="news-date" datetime="{{ item.sort_date | slice: 0, 7 }}">{{ item.sort_date | date: "%b %Y" }}</time><span class="news-text">{% if item.upcoming %}<span class="news-upcoming">Upcoming · </span>{% endif %}{{ item.text }}</span></li>
       {% endfor %}
     </ul>
+  </div>
   </div>
 </section>
 {% endif %}
