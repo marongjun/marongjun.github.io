@@ -21,6 +21,6 @@ My research has been published in leading HCI conferences and journals, includin
 
 </div>
 
-{% include research.html %}
-
 {% include news.html %}
+
+{% include research.html %}
