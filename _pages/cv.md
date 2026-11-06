@@ -14,6 +14,13 @@ redirect_from:
   <a href="{{ base_path }}/files/cv.pdf?v={{ site.time | date: '%s' }}" class="btn" target="_blank" rel="noopener noreferrer">Open PDF in a new tab</a>
 </div>
 
-<object class="cv-preview" data="{{ base_path }}/files/cv.pdf?v={{ site.time | date: '%s' }}#view=FitH" type="application/pdf" aria-label="Rongjun Ma’s CV — PDF preview">
-  <p>Your browser cannot display this PDF inline. <a href="{{ base_path }}/files/cv.pdf?v={{ site.time | date: '%s' }}" target="_blank" rel="noopener noreferrer">Open the CV</a> or use the download button above.</p>
-</object>
+<section class="cv-pages" aria-label="CV page previews">
+  <figure>
+    <img src="{{ base_path }}/files/cv-page-1.jpg?v={{ site.time | date: '%s' }}" alt="CV, page 1 of 2: research interests, education, and selected publications." width="1224" height="1584">
+    <figcaption>Page 1 of 2</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ base_path }}/files/cv-page-2.jpg?v={{ site.time | date: '%s' }}" alt="CV, page 2 of 2: awards, academic service, talks, teaching, research impact, and skills." width="1224" height="1584" loading="lazy">
+    <figcaption>Page 2 of 2</figcaption>
+  </figure>
+</section>
