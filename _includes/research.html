@@ -4,9 +4,7 @@
     {% for direction in site.data.research %}
     <article class="research-card" aria-labelledby="research-{{ direction.id }}">
       <div class="research-card__visual" aria-hidden="true">
-        <span class="research-card__number">0{{ forloop.index }}</span>
-        <i class="fas {{ direction.icon }} research-card__icon"></i>
-        <span class="research-card__visual-label">{{ direction.visual_label }}</span>
+        <img class="research-card__illustration" src="{{ direction.illustration | relative_url }}" alt="" width="1254" height="1254" loading="lazy" decoding="async">
       </div>
       <div class="research-card__body">
         <p class="research-card__category">{{ direction.category }}</p>

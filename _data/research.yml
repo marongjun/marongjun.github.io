@@ -1,7 +1,7 @@
 - id: intimacy
   category: Human–AI relationships
   title: Privacy, intimacy, and AI
-  icon: fa-heart
+  illustration: /images/research/intimacy.webp
   visual_label: Intimacy
   description: >-
     What happens to privacy when AI becomes a companion? I study how people
@@ -18,7 +18,7 @@
 - id: ecosystems
   category: Stakeholder perspectives
   title: Privacy across AI ecosystems
-  icon: fa-project-diagram
+  illustration: /images/research/ecosystems.webp
   visual_label: Ecosystems
   description: >-
     Privacy looks different depending on where you stand. I examine the
@@ -44,7 +44,7 @@
 - id: appropriation
   category: Technology in everyday life
   title: Everyday appropriation of technology
-  icon: fa-layer-group
+  illustration: /images/research/appropriation.webp
   visual_label: Everyday life
   description: >-
     People make technology their own. I study how they make sense of it,

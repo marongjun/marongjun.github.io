@@ -48,7 +48,7 @@ html[data-theme="dark"] .homepage-intro {
 
 .research-card {
   display: grid;
-  grid-template-columns: minmax(110px, 21%) minmax(0, 1fr);
+  grid-template-columns: minmax(150px, 27%) minmax(0, 1fr);
   overflow: hidden;
   border: 1px solid var(--global-border-color);
   border-radius: 10px;
@@ -60,26 +60,19 @@ html[data-theme="dark"] .homepage-intro {
     align-items: center;
     justify-content: center;
     gap: 1.2em;
-    padding: 1.5em 0.5em;
+    padding: 1.25em 0.75em;
     border-right: 1px solid var(--global-border-color);
     background: var(--research-visual);
     color: var(--research-accent);
   }
 
-  &__number {
-    font-size: 0.65em;
-    letter-spacing: 0.15em;
-  }
-
-  &__icon {
-    font-size: 2.1em;
-  }
-
-  &__visual-label {
-    font-size: 0.65em;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    text-align: center;
+  &__illustration {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: contain;
   }
 
   &__body {
@@ -167,14 +160,14 @@ html[data-theme="dark"] .research-overview {
 
     &__visual {
       flex-direction: row;
-      justify-content: flex-start;
+      justify-content: center;
       gap: 0.8em;
-      padding: 0.9em 1.2em;
+      padding: 1em;
       border-right: 0;
       border-bottom: 1px solid var(--global-border-color);
     }
 
-    &__icon { font-size: 1em; }
+    &__illustration { width: 160px; max-width: 100%; }
     &__body { padding: 1.2em; }
     &__papers li { font-size: 0.85em; }
   }
