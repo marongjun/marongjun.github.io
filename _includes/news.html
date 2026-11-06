@@ -1,0 +1,17 @@
+{% assign updates = site.data.news | sort: "sort_date" | reverse %}
+{% if updates and updates.size > 0 %}
+<section class="news-section" aria-labelledby="news-heading">
+  <h2 id="news-heading">News</h2>
+  <p class="news-hint" id="news-hint">Latest six updates. Scroll for earlier news.</p>
+  <div class="news-scroll" tabindex="0" role="region" aria-labelledby="news-heading" aria-describedby="news-hint">
+    <ul class="site-news">
+      {% for item in updates %}
+      <li>
+        <div class="news-date">{{ item.date }}{% if item.upcoming %} <span class="news-upcoming">Upcoming</span>{% endif %}</div>
+        <p>{{ item.text }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endif %}

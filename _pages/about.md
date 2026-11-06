@@ -9,7 +9,7 @@ redirect_from:
 
 <div class="homepage-intro" markdown="1">
 
-I am currently a Postdoctoral Researcher at the [HASP Lab](https://hasp-lab.github.io/), VRAIN, Universitat Politècnica de València (UPV), Spain, working with Professor [Jose Such](https://scholar.google.com/citations?user=xNr_IMUAAAAJ). I received my Ph.D. in Computer Science from Aalto University, Finland, under the supervision of Associate Professor [Janne Lindqvist](https://scholar.google.com/citations?user=rOW28UoAAAAJ). Before that, I completed my M.Sc. through the EIT Joint Master Program at Aalto University, Finland, and the University of Twente, the Netherlands.
+I am currently a Postdoctoral Researcher at the [HASP Lab](https://hasp-lab.github.io/){:target="_blank" rel="noopener noreferrer"}, VRAIN, Universitat Politècnica de València (UPV), Spain, working with Professor [Jose Such](https://scholar.google.com/citations?user=xNr_IMUAAAAJ){:target="_blank" rel="noopener noreferrer"}. I received my Ph.D. in Computer Science from Aalto University, Finland, under the supervision of Associate Professor [Janne Lindqvist](https://scholar.google.com/citations?user=rOW28UoAAAAJ){:target="_blank" rel="noopener noreferrer"}. Before that, I completed my M.Sc. through the EIT Joint Master Program at Aalto University, Finland, and the University of Twente, the Netherlands.
 
 I study **usable security and privacy in human–AI interaction**. My research follows three interconnected directions:
 
@@ -23,15 +23,4 @@ My research has been published in leading HCI conferences and journals, includin
 
 {% include research.html %}
 
-<!-- news section: loaded from _data/news.yml -->
-{% assign updates = site.data.news %}
-{% if updates and updates.size > 0 %}
-## News
-<ul class="site-news">
-  {%- comment -%} show at most 10 most recent entries {%- endcomment -%}
-  {% for item in updates limit:10 %}
-    <li><strong>{{ item.date }}:</strong> {{ item.text }}</li>
-  {% endfor %}
-</ul>
-{% endif %}
-
+{% include news.html %}

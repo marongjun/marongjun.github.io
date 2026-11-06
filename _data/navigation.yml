@@ -17,9 +17,6 @@ main:
   - title: "Academic Service"
     url: /teaching/    
     
-  - title: "Demos"
-    url: /year-archive/
-    
   - title: "CV"
     url: /cv/
     
