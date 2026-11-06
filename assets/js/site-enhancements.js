@@ -2,7 +2,7 @@
   // References open separately; navigation and downloads retain their normal behavior.
   document.querySelectorAll('a[href]').forEach(link => {
     const url = new URL(link.getAttribute('href'), window.location.href);
-    if (/^https?:$/.test(url.protocol) && url.origin !== window.location.origin) {
+    if (/^https?:$/.test(url.protocol) && (url.origin !== window.location.origin || /\.pdf$/i.test(url.pathname))) {
       link.target = '_blank';
     }
     if (link.target === '_blank') {
