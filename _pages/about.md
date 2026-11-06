@@ -1,6 +1,8 @@
 ---
 permalink: /
-title: "About Me"
+title: "Rongjun Ma"
+seo_title: "Rongjun Ma | Human–AI Interaction & Privacy Research"
+description: "Rongjun Ma is a postdoctoral researcher at UPV studying usable security, privacy, and human–AI interaction."
 author_profile: true
 redirect_from: 
   - /about/
